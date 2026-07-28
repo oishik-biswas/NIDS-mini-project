@@ -11,6 +11,10 @@ services:
     build: ./preprocessor_module
     ports:
       - "8001:8001"
+    volumes:
+      - ./trained_models:/app/trained_models
+    environment:
+      - MODEL_BASE_PATH=/app/trained_models
 
   decision:
     build: ./decision_engine
